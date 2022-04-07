@@ -1,10 +1,13 @@
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import Header from './components/Header';
+import Hero from './hero/hero';
 
 function App() {
   return (
     <div className="App">
-      Ecom site
+      <Header />
+      <Hero />
     </div>
   );
 }
