@@ -2,6 +2,9 @@ import React from 'react'
 import { withRouter } from 'react-router';
 import './main-section.style.scss'
 import msImageOne from './../asset/studio-bag.png';
+import FeaturedCollection from './featured-collection';
+
+
 
 
 const MainSection = ({history})=>{
@@ -24,6 +27,7 @@ const MainSection = ({history})=>{
             </button>
             </div>
           </div>
+          <FeaturedCollection />
         </div>
     )
 }

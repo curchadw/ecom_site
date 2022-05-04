@@ -1,5 +1,5 @@
 import React from 'react'
-import './featured-product.styles.scss'
+import './featured-products.style.scss'
 
 const FeaturedProduct = (product) =>{
     const {title, imageUrl, price } = product

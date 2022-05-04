@@ -1,8 +1,9 @@
-import logo from './logo.svg';
+
 import './App.scss';
 import Header from './components/Header';
 import Hero from './hero/hero';
 import MainSection from './components/main-section';
+import Footer from './components/footer/footer';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Header />
       <Hero />
       <MainSection />
+      <Footer />
     </div>
   );
 }
