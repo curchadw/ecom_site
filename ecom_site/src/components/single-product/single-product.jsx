@@ -1,13 +1,16 @@
 import React,{ useState, useEffect, useContext } from 'react'
 import { withRouter } from 'react-router'
 import { ProductContext } from '../../context/products-context'
+import { CartContext } from '../../context/cart-context'
 import Layout from '../layout'
 import './single-product.styles.scss'
+import { isInCart } from '../../helpers'
 
 
 const SingleProduct = ({match, history}) =>{
     const { push } = history
     const { products } = useContext(ProductContext)
+    const { addProduct, cartItems } = useContext(CartContext)
     const { id } = match.params
     const [product, setProduct] = useState(null)
     useEffect(()=>{
@@ -23,7 +26,7 @@ const SingleProduct = ({match, history}) =>{
     },[product,push, id, products])
 
     ///some type of loader could happen right here if the product is loading to screen
-    if(!product) return null
+    if(!product) {return null}
 
     const { imageUrl, title, price, description} = product;
     return (
@@ -38,9 +41,26 @@ const SingleProduct = ({match, history}) =>{
                         <p>{price}</p>
                     </div>
                     <div className='add-to-cart-btns'>
-                        <button className='button is-white nomad-btn' id='btn-white-outline'>
+                    {
+                        !isInCart(product, cartItems) &&               
+                        <button 
+                            className="button is-white nomad-btn" 
+                            id='btn-white-outline' 
+                            onClick={() => addProduct(product)}
+                        >
                             ADD TO CART
                         </button>
+            }
+            {
+                        isInCart(product, cartItems) &&               
+                        <button 
+                            className="button is-white nomad-btn" 
+                            id='btn-white-outline' 
+                            onClick={() => {}}>
+                            ADD MORE
+                        </button>
+            }
+                        
                         <button 
                             className="button is-black nomad-btn" 
                             id='buy-it-now-btn' 
