@@ -16,7 +16,7 @@ const Shop = () =>{
             <div className='product-list-container'>
                 <h2 className='product-list-title'>Shop</h2>
                 <div className='products-list'>
-                    { allProducts === undefined? <h1>Loading...</h1>: allProducts }
+                    { allProducts }
                 </div>
             </div>
         </Layout>
